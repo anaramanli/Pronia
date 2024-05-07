@@ -1,7 +1,7 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Index";
 }
+@model List<GetCategoryVM>
       <!-- Main Header Area End Here -->
 
       <!-- Begin Slider Area -->
@@ -166,45 +166,19 @@
               <ul
                 class="nav product-tab-nav tab-style-1"
                 id="myTab"
-                role="tablist"
-              >
-                <li class="nav-item" role="presentation">
-                  <a
-                    class="active"
-                    id="featured-tab"
-                    data-bs-toggle="tab"
-                    href="#featured"
-                    role="tab"
-                    aria-controls="featured"
-                    aria-selected="true"
-                  >
-                    Featured
-                  </a>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <a
-                    id="bestseller-tab"
-                    data-bs-toggle="tab"
-                    href="#bestseller"
-                    role="tab"
-                    aria-controls="bestseller"
-                    aria-selected="false"
-                  >
-                    Bestseller
-                  </a>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <a
-                    id="latest-tab"
-                    data-bs-toggle="tab"
-                    href="#latest"
-                    role="tab"
-                    aria-controls="latest"
-                    aria-selected="false"
-                  >
-                    Latest
-                  </a>
-                </li>
+                role="tablist">
+                @foreach (var item in Model)
+                    {
+                        <li class="nav-item" role="presentation">
+                            <a 
+                               data-bs-toggle="tab"
+                               role="tab"
+                               aria-controls="featured"
+                               aria-selected="true">
+                                @item.Name
+                            </a>
+                        </li>
+                    }
               </ul>
               <div class="tab-content" id="myTabContent">
                 <div
