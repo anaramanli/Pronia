@@ -1,0 +1,57 @@
+﻿@model List<GetSliderVM>
+<div style="display:flex; justify-content:space-between">
+	<h5 class="card-title fw-semibold mb-4">Slider</h5>
+	<a asp-action="Create" type="button" class="btn btn-outline-success m-1">Create</a>
+</div>
+<div class="table-responsive">
+	<table class="table table-bordered text-nowrap mb-0 align-middle">
+		<thead class="text-dark fs-4">
+			<tr>
+				<th class="border-bottom-0">
+					<h6 class="fw-semibold mb-0">Id</h6>
+				</th>
+				<th class="border-bottom-0">
+					<h6 class="fw-semibold mb-0">Image</h6>
+				</th>
+				<th class="border-bottom-0">
+					<h6 class="fw-semibold mb-0">Title</h6>
+				</th>
+				<th class="border-bottom-0">
+					<h6 class="fw-semibold mb-0">Subtitle</h6>
+				</th>
+				<th class="border-bottom-0">
+					<h6 class="fw-semibold mb-0">Action</h6>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var data in Model)
+			{
+				<tr>
+					<td class="border-bottom-0">
+						@data.Id
+					</td>
+					<td class="border-bottom-0">
+						<img src="@data.ImageUrl" width="50px">
+					</td>
+					<td class="border-bottom-0">
+						@data.Title
+					</td>
+					<td class="border-bottom-0">
+						@data.Subtitle
+					</td>
+					<td class="border-bottom-0">
+						@data.Discount
+					</td>
+					<td class="border-bottom-0">
+						<a asp-action="Update" asp-route-id="@data.Id" class="btn btn-warning">Update</a>
+						<a asp-action="Delete" asp-route-id="@data.Id" class="btn btn-danger">Delete</a>
+					</td>
+					<td class="border-bottom-0">
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+

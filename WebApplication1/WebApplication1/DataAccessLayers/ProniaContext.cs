@@ -10,7 +10,9 @@ namespace WebApplication1.DataAccessLayers
         {
         }
         public DbSet<Category> Categories { get; set; }
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        public DbSet<Slider> Sliders { get; set; }
+
+		protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             options.UseSqlServer("Server=WINDOWS-TPN1V5P\\SQLEXPRESS;Database=Pronia;Trusted_Connection=true;TrustServerCertificate=True;");
             base.OnConfiguring(options);

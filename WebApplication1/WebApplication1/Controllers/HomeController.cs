@@ -29,7 +29,7 @@ namespace WebApplication1.Controllers
             if (id == null || id < 1) return BadRequest();
             var plant = await _context.Categories.FindAsync(id);
             if (plant == null) return NotFound();
-            _context.Remove(plant);
+            _context.Categories.Remove(plant);
             await _context.SaveChangesAsync();
             return Content(plant.Name);
         }
