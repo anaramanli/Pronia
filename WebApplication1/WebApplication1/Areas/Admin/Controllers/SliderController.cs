@@ -6,20 +6,20 @@ using WebApplication1.ViewModels.Sliders;
 
 namespace WebApplication1.Areas.Admin.Controllers
 {
-    [Area("Admin")]
-    public class SliderController(ProniaContext _context) : Controller
-    {
+	[Area("Admin")]
+	public class SliderController(ProniaContext _context) : Controller
+	{
 		public async Task<IActionResult> Index()
 		{
-			var data =await _context.Sliders.Select(s => new GetSliderVM
+			var data = await _context.Sliders.Select(s => new GetSliderVM
 			{
 				Discount = s.Discount,
 				Title = s.Title,
 				ImageUrl = s.ImageUrl,
 				Subtitle = s.Subtitle,
 				Id = s.Id
-				
-			}).ToListAsync();	
+
+			}).ToListAsync();
 			return View(data ?? new List<GetSliderVM>());
 		}
 		[HttpGet]
@@ -46,6 +46,44 @@ namespace WebApplication1.Areas.Admin.Controllers
 			await _context.Sliders.AddAsync(slider);
 			await _context.SaveChangesAsync();
 			return RedirectToAction(nameof(Index));
+		}
+		[HttpGet]
+		public async Task<IActionResult> Update(int? id)
+		{
+			if (id == null || id < 1) BadRequest();
+			Slider? slider = await _context.Sliders.FirstOrDefaultAsync(s => s.Id == id);
+			if (slider == null) return NotFound();
+			UpdateSliderVM updateSliderVM = new UpdateSliderVM
+			{
+				Discount = slider.Discount,
+				Title = slider.Title,
+				ImageUrl = slider.ImageUrl,
+				Subtitle = slider.Subtitle
+			};
+			return View(updateSliderVM);
+		}
+		[HttpPost]
+		public async Task<IActionResult> Update(int? id, UpdateSliderVM sliderVM)
+		{
+			if (id == null || id < 1) BadRequest();
+			Slider existed = await _context.Sliders.FirstOrDefaultAsync(s => s.Id == id);
+			if (existed == null) return NotFound();
+			existed.Title = sliderVM.Title;
+			existed.Subtitle = sliderVM.Subtitle;
+			existed.ImageUrl = sliderVM.ImageUrl;
+			existed.Discount = sliderVM.Discount;
+
+			await _context.SaveChangesAsync();
+			return RedirectToAction(nameof(Index));
+		}
+		public async Task<IActionResult> Delete(int? id, Slider sliderToDelete)
+		{
+			if (id == null || id < 1) BadRequest();
+			var slider = await _context.Sliders.FirstOrDefaultAsync(s => s.Id == id);
+			if (slider == null) return NotFound();
+			_context.Sliders.Remove(slider);
+			await _context.SaveChangesAsync();
+			return RedirectToAction("Index");
 		}
 	}
 }

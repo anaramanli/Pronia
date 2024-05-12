@@ -1,0 +1,49 @@
+﻿@{
+	ViewData["Title"] = "Create";
+}
+@model CreateProductVM
+
+<form method="post" enctype="multipart/form-data">
+	<div class="mb-3">
+		<label asp-for="Name">Name</label>
+		<input asp-for="Name" class="form-control">
+		<span asp-validation-for="Name" class="text-danger"></span>
+	</div>
+	<div class="mb-3">
+		<label asp-for="CostPrice">CostPrice</label>
+		<input asp-for="CostPrice" class="form-control">
+		<span asp-validation-for="CostPrice" class="text-danger"></span>
+	</div>
+	<div class="mb-3">
+		<label asp-for="Rating">CostPrice</label>
+		<input asp-for="Rating" class="form-control">
+		<span asp-validation-for="Rating" class="text-danger"></span>
+	</div>
+	<div class="mb-3">
+		<label asp-for="SellPrice"> SellPrice</label>
+		<input asp-for="SellPrice" class="form-control">
+		<span asp-validation-for="SellPrice" class="text-danger"></span>
+	</div>
+	<div class="mb-3">
+		<label asp-for="Discount"> </label>
+		<input asp-for="Discount" class="form-control">
+		<span asp-validation-for="Discount" class="text-danger"></span>
+	</div>
+	<div class="mb-3">
+		<label asp-for="StockCount"> </label>
+		<input asp-for="StockCount" class="form-control">
+		<span asp-validation-for="StockCount" class="text-danger"></span>
+	</div>
+	<div class="mb-3">
+		<label asp-for="ImageFile"> </label>
+		<input asp-for="ImageFile" accept="image/*" class="form-control">
+		<span asp-validation-for="ImageFile" class="text-danger"></span>
+	</div>
+	@* <div class="mb-3">
+		<label asp-for="ImageFiles"> </label>
+		<input asp-for="ImageFiles" class="form-control">
+		<span asp-validation-for="ImageFiles" class="text-danger"></span>
+	</div> *@
+	<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+

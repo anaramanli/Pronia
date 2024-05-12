@@ -1,0 +1,32 @@
+﻿@{
+	ViewData["Title"] = "Create";
+}
+@using WebApplication1.Models
+@model UpdateSliderVM
+<form method="post">
+	<div class="mb-3">
+		<label asp-for="Title">Title</label>
+		<input asp-for="Title" class="form-control">
+		<span asp-validation-for="Title" class="text-danger"></span>
+	</div>
+	<div class="mb-3">
+		<label asp-for="Subtitle">Subtitle</label>
+		<input asp-for="Subtitle" class="form-control">
+		<span asp-validation-for="Subtitle" class="text-danger"></span>
+	</div>
+	<div class="mb-3">
+		<img src="@Model.ImageUrl"style="height:150px">
+		<br />
+		<label asp-for="ImageUrl"> Image</label>
+		<input asp-for="ImageUrl" class="form-control">
+		<span asp-validation-for="ImageUrl" class="text-danger"></span>
+	</div>
+	<div class="mb-3">
+		<label asp-for="Discount"> </label>
+		<input asp-for="Discount" class="form-control">
+		<span asp-validation-for="Discount" class="text-danger"></span>
+	</div>
+	<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
