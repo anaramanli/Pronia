@@ -12,5 +12,5 @@ namespace WebApplication1.Models
         public string Subtitle { get; set; }
         public string ImageUrl { get; set; }
         public DateTime CreatedTime { get; set; }
-    }
+	}
 }

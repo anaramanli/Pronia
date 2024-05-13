@@ -2,7 +2,7 @@
 	ViewData["Title"] = "Create";
 }
 @model CreateProductVM
-
+@ViewBag.Categories
 <form method="post" enctype="multipart/form-data">
 	<div class="mb-3">
 		<label asp-for="Name">Name</label>
@@ -15,10 +15,17 @@
 		<span asp-validation-for="CostPrice" class="text-danger"></span>
 	</div>
 	<div class="mb-3">
-		<label asp-for="Rating">CostPrice</label>
+		<label asp-for="Rating">Rating</label>
 		<input asp-for="Rating" class="form-control">
 		<span asp-validation-for="Rating" class="text-danger"></span>
 	</div>
+	@* <select asp-for="CategoryIds" class="form-control">
+		@foreach (var item in ViewBag.Categories)
+		{
+				<option value="@item.Id">@item.Name</option>
+		} *@
+	</select>
+	<select asp-for="CategoryIds" class="form-control" asp-items="new SelectList(ViewBag.Categories, nameof(GetCategoryVM.Id), nameof(GetCategoryVM.Name));"></select>
 	<div class="mb-3">
 		<label asp-for="SellPrice"> SellPrice</label>
 		<input asp-for="SellPrice" class="form-control">
@@ -39,11 +46,11 @@
 		<input asp-for="ImageFile" accept="image/*" class="form-control">
 		<span asp-validation-for="ImageFile" class="text-danger"></span>
 	</div>
-	@* <div class="mb-3">
+	<div class="mb-3">
 		<label asp-for="ImageFiles"> </label>
 		<input asp-for="ImageFiles" class="form-control">
 		<span asp-validation-for="ImageFiles" class="text-danger"></span>
-	</div> *@
+	</div>
 	<button type="submit" class="btn btn-primary">Submit</button>
 </form>
 

@@ -11,7 +11,7 @@ namespace WebApplication1.Areas.Admin.Controllers
 	{
 		public async Task<IActionResult> Index()
 		{
-			var data = await _context.Sliders.Select(s => new GetSliderVM
+			IEnumerable<GetSliderVM> data = await _context.Sliders.Select(s => new GetSliderVM
 			{
 				Discount = s.Discount,
 				Title = s.Title,
@@ -19,7 +19,7 @@ namespace WebApplication1.Areas.Admin.Controllers
 				Subtitle = s.Subtitle,
 				Id = s.Id
 
-			}).ToListAsync();
+			}).ToArrayAsync();
 			return View(data ?? new List<GetSliderVM>());
 		}
 		[HttpGet]

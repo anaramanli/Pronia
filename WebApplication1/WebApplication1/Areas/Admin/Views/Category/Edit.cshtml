@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "Update";
+}
+@using WebApplication1.Models
+
+@model UpdateCategoryVM
+<form method="post">
+	<div class="mb-3">
+		<label asp-for="Name">Title</label>
+		<input asp-for="Name" class="form-control">
+		<span asp-validation-for="Name" class="text-danger"></span>
+	</div>
+	
+	<button type="submit" class="btn btn-primary">Submit</button>
+</form>

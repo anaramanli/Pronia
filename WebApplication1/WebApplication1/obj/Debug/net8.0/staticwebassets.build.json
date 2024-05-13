@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "myGK/hYLAZTvhiFPKNpUkv+iwsftF9DtwW5S9hrpovk=",
+  "Hash": "0YyY2T0isqH+1Bak7AzEaLa7c0qrZ0uioe+1E13p70g=",
   "Source": "WebApplication1",
   "BasePath": "_content/WebApplication1",
   "Mode": "Default",
@@ -15329,6 +15329,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\js\\vendor\\modernizr-3.11.2.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\Pronia\\WebApplication1\\WebApplication1\\wwwroot\\imgs\\products\\yfxjqwub.qa4.jpg",
+      "SourceId": "WebApplication1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Pronia\\WebApplication1\\WebApplication1\\wwwroot\\",
+      "BasePath": "_content/WebApplication1",
+      "RelativePath": "imgs/products/yfxjqwub.qa4.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imgs\\products\\yfxjqwub.qa4.jpg"
     }
   ]
 }

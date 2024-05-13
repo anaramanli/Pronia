@@ -16,6 +16,7 @@ namespace WebApplication1.ViewModels.Products
 		public int StockCount { get; set; }
 		public IFormFile ImageFile { get; set; }
 		public float Rating { get; set; }
-		//public IEnumerable<IFormFile> ImageFiles { get; set; }
+        public int[] CategoryIds { get; set; }
+        public IEnumerable<IFormFile>? ImageFiles { get; set; }
 	}
 }

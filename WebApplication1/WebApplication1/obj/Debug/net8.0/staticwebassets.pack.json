@@ -3225,6 +3225,10 @@
       "PackagePath": "staticwebassets\\assets\\js\\vendor\\modernizr-3.11.2.min.js"
     },
     {
+      "Id": "C:\\Users\\User\\Desktop\\Pronia\\WebApplication1\\WebApplication1\\wwwroot\\imgs\\products\\yfxjqwub.qa4.jpg",
+      "PackagePath": "staticwebassets\\imgs\\products\\yfxjqwub.qa4.jpg"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.WebApplication1.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
