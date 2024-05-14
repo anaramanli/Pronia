@@ -40,6 +40,9 @@ namespace WebApplication1.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("UpdatedTime")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
@@ -86,6 +89,9 @@ namespace WebApplication1.Migrations
                     b.Property<int>("StockCount")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("UpdatedTime")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
@@ -112,6 +118,9 @@ namespace WebApplication1.Migrations
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedTime")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -142,6 +151,9 @@ namespace WebApplication1.Migrations
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedTime")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -180,6 +192,9 @@ namespace WebApplication1.Migrations
                         .IsRequired()
                         .HasMaxLength(32)
                         .HasColumnType("nvarchar(32)");
+
+                    b.Property<DateTime>("UpdatedTime")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 

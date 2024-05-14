@@ -2,7 +2,7 @@
 	ViewData["Title"] = "Create";
 }
 @model CreateProductVM
-@ViewBag.Categories
+
 <form method="post" enctype="multipart/form-data">
 	<div class="mb-3">
 		<label asp-for="Name">Name</label>
@@ -25,7 +25,11 @@
 				<option value="@item.Id">@item.Name</option>
 		} *@
 	</select>
-	<select asp-for="CategoryIds" class="form-control" asp-items="new SelectList(ViewBag.Categories, nameof(GetCategoryVM.Id), nameof(GetCategoryVM.Name));"></select>
+	<div class="mb-3">
+		<label asp-for="CategoryIds">CategoryIds</label>
+		<select asp-for="CategoryIds" class="form-control" asp-items="new SelectList(ViewBag.Categories, nameof(GetCategoryVM.Id), nameof(GetCategoryVM.Name))"></select>
+		<span asp-validation-for="CategoryIds" class="text-danger"></span>
+	</div>
 	<div class="mb-3">
 		<label asp-for="SellPrice"> SellPrice</label>
 		<input asp-for="SellPrice" class="form-control">

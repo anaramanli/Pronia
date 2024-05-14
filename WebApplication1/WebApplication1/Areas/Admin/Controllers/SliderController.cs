@@ -11,16 +11,30 @@ namespace WebApplication1.Areas.Admin.Controllers
 	{
 		public async Task<IActionResult> Index()
 		{
-			IEnumerable<GetSliderVM> data = await _context.Sliders.Select(s => new GetSliderVM
-			{
-				Discount = s.Discount,
-				Title = s.Title,
-				ImageUrl = s.ImageUrl,
-				Subtitle = s.Subtitle,
-				Id = s.Id
+			//IEnumerable<GetSliderVM> data = await _context.Sliders.Select(s => new GetSliderVM
+			//{
+			//	Discount = s.Discount,
+			//	Title = s.Title,
+			//	ImageUrl = s.ImageUrl,
+			//	Subtitle = s.Subtitle,
+			//	Id = s.Id
 
-			}).ToArrayAsync();
-			return View(data ?? new List<GetSliderVM>());
+			//}).ToArrayAsync();
+			//return View(data ?? new List<GetSliderVM>());
+
+			var data = await _context.Sliders
+				.Select(s=> new GetSliderAdminVM
+				{
+					Discount = s.Discount,
+					Id = s.Id,
+					ImageUrl = s.ImageUrl,
+					Subtitle = s.Subtitle,
+					Title = s.Title,
+					IsDeleted = s.IsDeleted,
+					CreatedTime = s.CreatedTime.ToString("dd MM yyyy hh"),
+					UpdatedTime = s.UpdatedTime.Year > 1 ? s.UpdatedTime.ToString("dd MM yyyy hh") : "-"
+				}).ToListAsync();
+			return View(data);
 		}
 		[HttpGet]
 		public IActionResult Create()
@@ -84,6 +98,14 @@ namespace WebApplication1.Areas.Admin.Controllers
 			_context.Sliders.Remove(slider);
 			await _context.SaveChangesAsync();
 			return RedirectToAction("Index");
+		}
+		public async Task<IActionResult> ChangeVisiblity (int id)
+		{
+			var data = await _context.Sliders.FindAsync(id);
+			if(data == null) return BadRequest();
+			data.IsDeleted = !data.IsDeleted;
+			await _context.SaveChangesAsync();
+			return Ok();
 		}
 	}
 }

@@ -22,8 +22,11 @@ public class ProductController(ProniaContext _context, IWebHostEnvironment _env)
                 Name = p.Name,
                 Rating = p.Rating,
                 SellPrice = p.SellPrice,
-                StockCount = p.StockCount
-            })
+                StockCount = p.StockCount,
+                Categories = p.ProductCategories.Select(pc=> pc.Category.Name).Bind(','),
+                CreatedTime = p.CreatedTime.ToString("dd MM yyyy"),
+                UpdatedTime = p.UpdatedTime.Year > 1  ? p.UpdatedTime.ToString("dd MM yyyy") : "-"
+			})
             .ToListAsync());
     }
     public async Task<IActionResult> Create()
@@ -45,7 +48,7 @@ public class ProductController(ProniaContext _context, IWebHostEnvironment _env)
         }
         bool isImageValid = true;
         StringBuilder sb = new StringBuilder();
-        foreach (var img in data.ImageFiles)
+        foreach (var img in data.ImageFiles ?? new List<IFormFile>())
         {
             if (!img.IsValidType("image"))
             {
@@ -62,7 +65,10 @@ public class ProductController(ProniaContext _context, IWebHostEnvironment _env)
         {
             ModelState.AddModelError("ImageFiles", sb.ToString());
         }
-        if (!ModelState.IsValid)
+        if (await _context.Categories.CountAsync(c=>data.CategoryIds.Contains(c.Id)) != data.CategoryIds.Length)
+            ModelState.AddModelError("CategoryIds", "Category Not Found");
+
+		if (!ModelState.IsValid)
             return View(data);
         string fileName = await data.ImageFile.SaveFileAsync(Path.Combine(_env.WebRootPath, "imgs", "products"));
         Product prod = new Product
@@ -76,7 +82,12 @@ public class ProductController(ProniaContext _context, IWebHostEnvironment _env)
             Rating = data.Rating,
             SellPrice = data.SellPrice,
             StockCount = data.StockCount,
-            Images = new List<ProductImage>()
+            Images = new List<ProductImage>(),
+            //------Many to Many ---------->
+            ProductCategories = data.CategoryIds.Select(x => new
+            ProductCategory {
+                CategoryId = x
+            }).ToList()
         };
         foreach (var img in data.ImageFiles)
         {
@@ -88,14 +99,17 @@ public class ProductController(ProniaContext _context, IWebHostEnvironment _env)
             //    IsDeleted = false,
             //    Product = prod
             //});
+            //-------One To Many --------->
             prod.Images.Add(new ProductImage
             {
                 ImageUrl = Path.Combine("imgs", "products", imgName),
                 CreatedTime = DateTime.Now,
                 IsDeleted = false,
             });
-        }
-        await _context.Products.AddAsync(prod);
+			//----- One To Many End ------->
+
+		}
+		await _context.Products.AddAsync(prod);
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }

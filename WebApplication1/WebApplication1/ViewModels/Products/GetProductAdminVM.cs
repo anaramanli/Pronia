@@ -17,7 +17,9 @@ namespace WebApplication1.ViewModels.Products
 		public int StockCount { get; set; }
 		public string ImageUrl { get; set; }
 		public float Rating { get; set; }
+        public string Categories { get; set; }
+        public string CreatedTime { get; set; }
+        public string UpdatedTime { get; set; }
 
-
-	}
+    }
 }

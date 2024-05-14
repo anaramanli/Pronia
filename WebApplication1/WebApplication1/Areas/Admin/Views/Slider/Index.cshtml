@@ -1,4 +1,5 @@
-﻿@model IEnumerable<GetSliderVM>
+﻿@* @model IEnumerable<GetSliderVM> *@
+@model List<GetSliderAdminVM>
 <div style="display:flex; justify-content:space-between">
 	<h5 class="card-title fw-semibold mb-4">Slider</h5>
 	<a asp-action="Create" type="button" class="btn btn-outline-success m-1">Create</a>
@@ -19,6 +20,19 @@
 				<th class="border-bottom-0">
 					<h6 class="fw-semibold mb-0">Subtitle</h6>
 				</th>
+				<th class="border-bottom-0">
+					<h6 class="fw-semibold mb-0">CreatedTime</h6>
+				</th>
+
+				<th class="border-bottom-0">
+					<h6 class="fw-semibold mb-0">UpdatedTime</h6>
+				</th>
+				<th class="border-bottom-0">
+					<h6 class="fw-semibold mb-0">Visiblity</h6>
+				</th>
+				<th class="border-bottom-0">
+					<h6 class="fw-semibold mb-0">Action</h6>
+				</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -37,11 +51,23 @@
 					<td class="border-bottom-0">
 						@data.Subtitle
 					</td>
-					
-					
+					<td class="border-bottom-0">
+						@data.CreatedTime
+					</td>
+					<td class="border-bottom-0">
+						@data.UpdatedTime
+					</td>
+					<td>
+						<div class="form-check form-switch">
+							<input class="form-check-input change-visiblity" style="width:3.5rem; height:1.75rem"
+								   slider-id="@data.Id " type="checkbox" checked="@(!data.IsDeleted)">
+						</div>
+					</td>
+
 					<td class="border-bottom-0">
 						<a asp-action="Update" asp-route-id="@data.Id" class="btn btn-warning">Update</a>
-						<a asp-action="Delete" asp-route-id="@data.Id" class="btn btn-danger">Delete</a>
+						<a asp-action="Delete" asp-route-id="@data.Id" slider-id="@data.Id " class="btn btn-danger delete">Delete</a>
+
 					</td>
 					<td class="border-bottom-0">
 					</td>
@@ -50,4 +76,88 @@
 		</tbody>
 	</table>
 </div>
+@section styles{
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+}
+@section scripts {
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+	<script>
+		Command:
+		
+		toastr.options = {
+			"closeButton": false,
+			"debug": false,
+			"newestOnTop": false,
+			"progressBar": true,
+			"positionClass": "toast-top-right",
+			"preventDuplicates": false,
+			"onclick": null,
+			"showDuration": "300",
+			"hideDuration": "500",
+			"timeOut": "2000",
+			"extendedTimeOut": "1000",
+			"showEasing": "swing",
+			"hideEasing": "linear",
+			"showMethod": "fadeIn",
+			"hideMethod": "fadeOut"
+		}
+		let inputs = document.getElementsByClassName("change-visiblity");
+		inputs.forEach(i => {
+			i.addEventListener("change", () => {
+				fetch("http://localhost:5014/Admin/Slider/ChangeVisiblity/" + i.getAttribute("slider-id"))
+					.then(res => {
+						if(res.status == 200 ){
+							toastr["success"]("Status has been changed")
+						}
+						else{
+							toastr["error"]("Oops")
+
+						}
+					})
+					.catch(err => toastr["error"]("Oops"))
+			});
+		})
+		let deleteBtns = document.querySelectorAll(".delete");
+
+		deleteBtns.forEach(btn => {
+			btn.addEventListener("click", (event) => {
+				event.preventDefault(); 
+
+				let sliderId = btn.getAttribute("slider-id");
+
+				Swal.fire({
+					title: "Are you sure you want to delete?",
+					text: "You won't be able to revert this!",
+					icon: "warning",
+					showCancelButton: true,
+					confirmButtonColor: "#d33",
+					cancelButtonColor: "#3085d6",
+					confirmButtonText: "Yes, delete it!"
+				}).then((result) => {
+					if (result.isConfirmed) {
+						fetch(`/Admin/Slider/Delete/${sliderId}`, {
+							method: "Delete"
+						})
+							.then(response => {
+								if (response.ok) {
+									toastr["success"]("Slider deleted successfully");
+									btn.closest("tr").remove();
+								} else {
+									toastr["error"]("Failed to delete slider");
+								}
+							})
+							.catch(error => {
+								console.error("Error:", error);
+								toastr["error"]("An error occurred while deleting the slider");
+							});
+					}
+				});
+			});
+		});
+
+
+	</script>
+}
 
