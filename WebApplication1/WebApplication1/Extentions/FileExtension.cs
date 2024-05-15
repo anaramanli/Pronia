@@ -14,7 +14,7 @@
 			string newName = Path.GetRandomFileName(); 
 			await using FileStream fs = new FileStream(Path.Combine(path, newName + ext), FileMode.Create);
 			await file.CopyToAsync(fs);
-			return Path.Combine(path, newName + ext);
+			return (newName + ext);
 		}
 	
 	}

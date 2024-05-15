@@ -33,25 +33,35 @@ namespace WebApplication1.Areas.Admin.Controllers
 		// POST: HomeController/Create
 		[HttpPost]
 		
-		public async Task<ActionResult> Create(CreateCategoryVM vM)
-		{
-			if (vM.Name != null && await _sql.Categories.AnyAsync(c=>c.Name == vM.Name))
-			{
-				ModelState.AddModelError("Name", "Name already has in database");
-			}
-			if (!ModelState.IsValid)
-			{
-				return View(vM);
-			}
-			await _sql.Categories.AddAsync(new Models.Category
-			{
-				CreatedTime = DateTime.Now,
-				Name = vM.Name,
-				IsDeleted = false
-			});
-			await _sql.SaveChangesAsync();
-			return RedirectToAction("Index");
-		}
+		[HttpPost]
+public async Task<ActionResult> Create(CreateCategoryVM vM)
+{
+    if (vM.Name == null)
+    {
+        ModelState.AddModelError("Name", "Name cannot be null");
+    }
+    else if (await _sql.Categories.AnyAsync(c => c.Name == vM.Name))
+    {
+        ModelState.AddModelError("Name", "Name already exists in the database");
+    }
+
+    if (!ModelState.IsValid)
+    {
+        return View(vM);
+    }
+
+    await _sql.Categories.AddAsync(new Models.Category
+    {
+        CreatedTime = DateTime.Now,
+        Name = vM.Name,
+        IsDeleted = false
+    });
+
+    await _sql.SaveChangesAsync();
+
+    return RedirectToAction("Index");
+}
+
 
 		[HttpGet]
 		public async Task<IActionResult> Edit(int? id)

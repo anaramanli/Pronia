@@ -14,6 +14,7 @@ namespace WebApplication1.DataAccessLayers
 		public DbSet<Product> Products { get; set; }
 		public DbSet<ProductImage> ProductImages { get; set; }
 		//public DbSet<ProductCategory> ProductCategories { get; set; }
+		public DbSet<Setting> Settings { get; set; }
 		//------------------------------------------------------------>
 		public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
 		{

@@ -16,7 +16,9 @@ namespace WebApplication1.Controllers
 		}
 		public async Task<IActionResult> Index()
 		{
-			var sliders = await _context.Sliders.ToListAsync();
+			var sliders = await _context.Sliders
+				.Where(s => !s.IsDeleted)
+				.ToListAsync();
 
 			var categories = await _context.Categories
 											.Where(x => !x.IsDeleted)
