@@ -6,7 +6,7 @@ namespace WebApplication1.DataAccessLayers
 {
 	public class ProniaContext : DbContext
 	{
-		public ProniaContext(DbContextOptions options) : base(options)
+		public ProniaContext(DbContextOptions<ProniaContext> options) : base(options)
 		{
 		}
 		public DbSet<Category> Categories { get; set; }
@@ -35,11 +35,11 @@ namespace WebApplication1.DataAccessLayers
 		}
 		//------------------------------------------------------------>
 
-		protected override void OnConfiguring(DbContextOptionsBuilder options)
-		{
-			options.UseSqlServer("Server=CA-R214-PC18\\SQLEXPRESS;Database=Pronia;Trusted_Connection=true;TrustServerCertificate=True;");
-			//options.UseSqlServer("Server=WINDOWS-TPN1V5P\\SQLEXPRESS;Database=Pronia;Trusted_Connection=true;TrustServerCertificate=True;");
-			base.OnConfiguring(options);
-		}
+		//protected override void OnConfiguring(DbContextOptionsBuilder options)
+		//{
+		//	//options.UseSqlServer("Server=CA-R214-PC18\\SQLEXPRESS;Database=Pronia;Trusted_Connection=true;TrustServerCertificate=True;");
+		//	options.UseSqlServer("Server=WINDOWS-TPN1V5P\\SQLEXPRESS;Database=Pronia;Trusted_Connection=true;TrustServerCertificate=True;");
+		//	base.OnConfiguring(options);
+		//}
 	}
 }

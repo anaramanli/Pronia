@@ -48,10 +48,7 @@ namespace WebApplication1.Controllers
 		{
 			return View();
 		}
-		public async Task<IActionResult> Shop()
-		{
-			return View();
-		}
+		
 		public async Task<IActionResult> AboutUs()
 		{
 			return View();

@@ -46,7 +46,7 @@ public class ProductController(ProniaContext _context, IWebHostEnvironment _env)
 		{
 			if (!data.ImageFile.IsValidType("image"))
 				ModelState.AddModelError("ImageFile", "File must be img content.");
-			if (!data.ImageFile.IsValidLength(300))
+			if (!data.ImageFile.IsValidLength(2000))
 				ModelState.AddModelError("ImageFile", "File size must be lower than 3mb.");
 		}
 		bool isImageValid = true;
@@ -58,7 +58,7 @@ public class ProductController(ProniaContext _context, IWebHostEnvironment _env)
 				sb.Append("-" + img.FileName + " File must be img content.");
 				isImageValid = false;
 			}
-			if (!img.IsValidLength(3000))
+			if (!img.IsValidLength(8000))
 			{
 				sb.Append("-" + img.FileName + " File size must be lower than 3mb.");
 				isImageValid = false;
@@ -72,7 +72,12 @@ public class ProductController(ProniaContext _context, IWebHostEnvironment _env)
 			ModelState.AddModelError("CategoryIds", "Category Not Found");
 
 		if (!ModelState.IsValid)
+		{
+			ViewBag.Categories = await _context.Categories
+			.Where(s => !s.IsDeleted)
+			.ToListAsync();
 			return View(data);
+		}
 		string fileName = await data.ImageFile.SaveFileAsync(Path.Combine(_env.WebRootPath, "imgs", "products"));
 		Product prod = new Product
 		{
