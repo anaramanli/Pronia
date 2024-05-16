@@ -17,95 +17,95 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WebApplication1
 build_property.RootNamespace = WebApplication1
-build_property.ProjectDir = C:\Users\User\Desktop\Pronia\WebApplication1\WebApplication1\
+build_property.ProjectDir = C:\Users\ca.r214.18\Desktop\Pronia\WebApplication1\WebApplication1\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\User\Desktop\Pronia\WebApplication1\WebApplication1
+build_property.MSBuildProjectDirectory = C:\Users\ca.r214.18\Desktop\Pronia\WebApplication1\WebApplication1
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/User/Desktop/Pronia/WebApplication1/WebApplication1/Areas/Admin/Views/Category/Create.cshtml]
+[C:/Users/ca.r214.18/Desktop/Pronia/WebApplication1/WebApplication1/Areas/Admin/Views/Category/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Pronia/WebApplication1/WebApplication1/Areas/Admin/Views/Category/Edit.cshtml]
+[C:/Users/ca.r214.18/Desktop/Pronia/WebApplication1/WebApplication1/Areas/Admin/Views/Category/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Pronia/WebApplication1/WebApplication1/Areas/Admin/Views/Category/Index.cshtml]
+[C:/Users/ca.r214.18/Desktop/Pronia/WebApplication1/WebApplication1/Areas/Admin/Views/Category/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Pronia/WebApplication1/WebApplication1/Areas/Admin/Views/Product/Create.cshtml]
+[C:/Users/ca.r214.18/Desktop/Pronia/WebApplication1/WebApplication1/Areas/Admin/Views/Product/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Pronia/WebApplication1/WebApplication1/Areas/Admin/Views/Product/Index.cshtml]
+[C:/Users/ca.r214.18/Desktop/Pronia/WebApplication1/WebApplication1/Areas/Admin/Views/Product/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Pronia/WebApplication1/WebApplication1/Areas/Admin/Views/Product/Update.cshtml]
+[C:/Users/ca.r214.18/Desktop/Pronia/WebApplication1/WebApplication1/Areas/Admin/Views/Product/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxVcGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Pronia/WebApplication1/WebApplication1/Areas/Admin/Views/Shared/_Layout.cshtml]
+[C:/Users/ca.r214.18/Desktop/Pronia/WebApplication1/WebApplication1/Areas/Admin/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Pronia/WebApplication1/WebApplication1/Areas/Admin/Views/Slider/Create.cshtml]
+[C:/Users/ca.r214.18/Desktop/Pronia/WebApplication1/WebApplication1/Areas/Admin/Views/Slider/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2xpZGVyXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Pronia/WebApplication1/WebApplication1/Areas/Admin/Views/Slider/Index.cshtml]
+[C:/Users/ca.r214.18/Desktop/Pronia/WebApplication1/WebApplication1/Areas/Admin/Views/Slider/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2xpZGVyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Pronia/WebApplication1/WebApplication1/Areas/Admin/Views/Slider/Update.cshtml]
+[C:/Users/ca.r214.18/Desktop/Pronia/WebApplication1/WebApplication1/Areas/Admin/Views/Slider/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2xpZGVyXFVwZGF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Pronia/WebApplication1/WebApplication1/Areas/Admin/Views/_ViewImports.cshtml]
+[C:/Users/ca.r214.18/Desktop/Pronia/WebApplication1/WebApplication1/Areas/Admin/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Pronia/WebApplication1/WebApplication1/Areas/Admin/Views/_ViewStart.cshtml]
+[C:/Users/ca.r214.18/Desktop/Pronia/WebApplication1/WebApplication1/Areas/Admin/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Pronia/WebApplication1/WebApplication1/Views/Home/AboutUs.cshtml]
+[C:/Users/ca.r214.18/Desktop/Pronia/WebApplication1/WebApplication1/Views/Home/AboutUs.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dFVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Pronia/WebApplication1/WebApplication1/Views/Home/Contact.cshtml]
+[C:/Users/ca.r214.18/Desktop/Pronia/WebApplication1/WebApplication1/Views/Home/Contact.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Pronia/WebApplication1/WebApplication1/Views/Home/Index.cshtml]
+[C:/Users/ca.r214.18/Desktop/Pronia/WebApplication1/WebApplication1/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Pronia/WebApplication1/WebApplication1/Views/Home/Shop.cshtml]
+[C:/Users/ca.r214.18/Desktop/Pronia/WebApplication1/WebApplication1/Views/Home/Shop.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTaG9wLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Pronia/WebApplication1/WebApplication1/Views/Shared/Components/Product/Default.cshtml]
+[C:/Users/ca.r214.18/Desktop/Pronia/WebApplication1/WebApplication1/Views/Shared/Components/Product/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcUHJvZHVjdFxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Pronia/WebApplication1/WebApplication1/Views/Shared/_Layout.cshtml]
+[C:/Users/ca.r214.18/Desktop/Pronia/WebApplication1/WebApplication1/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Pronia/WebApplication1/WebApplication1/Views/Shop/ShopLayout.cshtml]
+[C:/Users/ca.r214.18/Desktop/Pronia/WebApplication1/WebApplication1/Views/Shop/ShopLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvcFxTaG9wTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Pronia/WebApplication1/WebApplication1/Views/_ViewImports.cshtml]
+[C:/Users/ca.r214.18/Desktop/Pronia/WebApplication1/WebApplication1/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Pronia/WebApplication1/WebApplication1/Views/_ViewStart.cshtml]
+[C:/Users/ca.r214.18/Desktop/Pronia/WebApplication1/WebApplication1/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

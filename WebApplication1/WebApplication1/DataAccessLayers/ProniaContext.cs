@@ -37,8 +37,8 @@ namespace WebApplication1.DataAccessLayers
 
 		protected override void OnConfiguring(DbContextOptionsBuilder options)
 		{
-			//options.UseSqlServer("Server=CA-R214-PC18\\SQLEXPRESS;Database=Pronia;Trusted_Connection=true;TrustServerCertificate=True;");
-			options.UseSqlServer("Server=WINDOWS-TPN1V5P\\SQLEXPRESS;Database=Pronia;Trusted_Connection=true;TrustServerCertificate=True;");
+			options.UseSqlServer("Server=CA-R214-PC18\\SQLEXPRESS;Database=Pronia;Trusted_Connection=true;TrustServerCertificate=True;");
+			//options.UseSqlServer("Server=WINDOWS-TPN1V5P\\SQLEXPRESS;Database=Pronia;Trusted_Connection=true;TrustServerCertificate=True;");
 			base.OnConfiguring(options);
 		}
 	}
