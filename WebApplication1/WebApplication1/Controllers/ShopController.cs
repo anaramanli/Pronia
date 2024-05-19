@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.DataAccessLayers;
+using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
@@ -12,13 +13,27 @@ namespace WebApplication1.Controllers
         {
             _context = context;
         }
-        public async Task<IActionResult> Index(int page = 0)
+        public async Task<IActionResult> Index(int page = 0, int? categoryId=null)
         {
-            double max = await _context.Products.CountAsync();
-            ViewBag.MaxPage= Math.Ceiling((double) max / 2);
+            IQueryable<Product> query = _context.Products.Include(p=> p.ProductCategories);
+
+
+            if (categoryId != null)
+            {
+                query = query.Where(p => p.ProductCategories.Any(pc => pc.CategoryId == categoryId));
+            }
+            double max = query.Count();
+
+            ViewBag.CurrentCategory = categoryId;
+            ViewBag.MaxPage = Math.Ceiling((double)max / 2);
             ViewBag.CurrentPage = page + 1;
-            var products = await _context.Products.Skip(2*page).Take(2).ToListAsync();
-            return View(products);
+
+            query = query.Skip(2 * page).Take(2);
+
+            ViewBag.Categories = await _context.Categories.Include(c => c.ProductCategories).ToListAsync();
+            
+           
+            return View(await query.ToListAsync());
         }
     }
 }
